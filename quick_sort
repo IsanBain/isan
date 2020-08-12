@@ -1,0 +1,59 @@
+//Quick Sort
+
+#include<stdio.h>
+void quickSort(int,int);
+void print(int);
+int a[100];
+void main()
+{
+	int i,n;
+	printf("\nEnter the total number of element: ");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	   {
+	   	 printf("\nEnter the element of position no %d: ",i+1);
+	   	 scanf("%d",&a[i]);
+	   }
+	quickSort(0,n-1);
+	print(n);
+}
+
+void quickSort(int P, int Q)
+{
+	if(P<Q)
+	  {
+	  	int i,j,pivot,temp;
+	  	pivot = i = P;
+	  	j = Q;
+	  	while(i<j)
+	  	  {
+	  	  	while(a[i]<=a[pivot])
+	  	  	  i++;
+	  	  	while(a[j]>a[pivot])
+	  	  	  j--;
+	  	  	if(i<j)
+	  	  	{
+	  	  	  temp = a[i];
+	  	  	  a[i] = a[j];
+	  	  	  a[j] = temp;
+	  	  	  i++;
+	  	  	  j--;
+	  	    }
+		  }
+		temp = a[pivot];
+		a[pivot] = a[j];
+		a[j] = temp;
+		quickSort(j+1,Q);
+		quickSort(P,j-1);
+	  }
+}
+
+void print(int n)
+{
+	int i;
+	printf("\nSorted Elements are: ");
+	for(i=0;i<n;i++)
+	   {
+	   	 printf("\t%d",a[i]);
+	   }
+}
