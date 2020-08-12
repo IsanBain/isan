@@ -1,0 +1,45 @@
+//Binary Search
+
+#include<stdio.h>
+void main()
+{
+	int a[100],n,s,i,mid,f,l,c,d;
+	printf("\nEnter the total number of Element: ");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	   {
+	   	 printf("\nEnter the element no %d: ",i+1);
+	   	 scanf("%d",&a[i]);
+	   }
+	printf("\nEnter the search Element: ");
+	scanf("%d",&s);
+	f=0;
+	l=n-1;
+	while(f<=l)
+	  {
+	  	mid = (f+l)/2;
+	  	if(a[mid] == s)
+	  	  {
+	  	  	printf("\nSearch Successfull...\nElement found at position no: %d",mid+1);
+	  	  	i = 1;
+	  	  	while(a[mid+i] == s)
+	  	  	  {
+	  	  	    printf("\nElement found at position no: %d",mid+i+1);
+	  	  	    i++;
+	  	  	  }
+	  	  	i = 1;
+	  	  	while(a[mid-i] == s)
+	  	  	  {
+	  	  	    printf("\nElement found at position no: %d",mid-i+1);
+	  	  	    i--;
+	  	  	  }
+	  	  	break;
+		  }
+		else if(s > a[mid])
+		  f = mid+1;
+		else
+		  l = mid-1;
+	  }
+	if(f>l)
+	  printf("\nSearch Unsuccessfull...");
+}
