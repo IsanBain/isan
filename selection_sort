@@ -1,0 +1,39 @@
+//Selection Sort
+
+#include<stdio.h>
+void SelectionSort();
+int n,a[100];
+void main()
+{
+	int i;
+	printf("Enter the total number of Element: ");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	   {
+	   	 printf("\nEnter the element of position no %d: ",i+1);
+	   	 scanf("%d",&a[i]);
+	   }
+	SelectionSort();
+	printf("\nSorted elements are: ");
+	for(i=0;i<n;i++)
+	   {
+	   	 printf("\t%d",a[i]);
+	   }
+}
+
+void SelectionSort()
+{
+	int i,j,key,temp;
+	for(i=0;i<n-1;i++)
+	   {
+	   	 key = i;
+	     for(j=i+1;j<n;j++)
+	        {
+	         if(a[key]>a[j])
+	      	   	 key = j;
+            }
+		 temp = a[key];
+		 a[key] = a[i];
+		 a[i] = temp;
+	   }
+}
